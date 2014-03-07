@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Cache Data JAR Build" default="copy">
+			
+	<property file="${basedir}/cachedata.build.properties"/>
+	
+	<target name="clean">
+		<mkdir dir="dist"/>
+		<delete includeemptydirs="true">
+			<fileset dir="dist" includes="**/*" />
+		</delete>
+	</target>
+
+	<target name="compile">
+		<javac destdir="bin" debug="true" fork="true">
+			<classpath>
+				<fileset dir="${ocep.home}/ocep_11.1/modules">
+					<include name="${coherence.jar}"/>
+				</fileset>
+			</classpath>
+			<src path="src"/>
+			<patternset includes="**/*.java"/>
+		</javac>
+	</target>
+	
+	<target name="jar" depends="clean">
+		<jar destfile="dist/${output.jar}">
+			 <fileset dir="bin"/>
+		</jar>
+	</target>
+	
+	<target name="copy" depends="jar">
+		<copy file="dist/${output.jar}" todir="../${oep.project}/lib"/>
+		<copy file="dist/${output.jar}" todir="/oracle/fmwhome/coherence_3.7/lib"/>
+		<!--
+		<copy file="dist/${output.jar}" todir="../${oep.project2}/lib"/>
+		
+		<copy file="dist/${output.jar}" todir="../${oep.project3}/lib"/>
+		-->
+		<!--
+		<copy file="conf/coherence-cache-config.xml" todir="../${oep.project}/META-INF/wlevs/coherence"/>
+		<copy file="conf/tangosol-coherence-override.xml" todir="../${oep.project}/META-INF/wlevs/coherence"/>
+		<copy file="conf/coherence-cache-config.xml" todir="../${oep.project2}/META-INF/wlevs/coherence"/>
+		<copy file="conf/tangosol-coherence-override.xml" todir="../${oep.project2}/META-INF/wlevs/coherence"/>
+		-->
+	</target>
+
+	
+	<target name="copy-conf-only">
+		<copy file="conf/coherence-cache-config.xml" todir="/oracle/fmwhome/coherence_3.7/shopping"/>
+		<copy file="conf/tangosol-coherence-override.xml" todir="/oracle/fmwhome/coherence_3.7/shopping"/>
+	</target>
+	
+</project>

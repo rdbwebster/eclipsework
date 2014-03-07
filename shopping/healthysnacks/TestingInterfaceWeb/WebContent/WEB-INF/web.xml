@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>TestingInterfaceWeb</display-name>
+  <welcome-file-list>
+    <welcome-file>shop.jsp</welcome-file>
+  </welcome-file-list>
+     
+  <servlet>
+    <servlet-name>PubSubServlet</servlet-name>
+    <servlet-class>com.bea.httppubsub.servlet.ControllerServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PubSubServlet</servlet-name>
+    <url-pattern>/cometd/*</url-pattern>
+  </servlet-mapping>
+
+  <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>ShoppingPages</web-resource-name>
+            <description>
+                These pages are only accessible by authorized users.
+            </description>
+            <url-pattern>/shop.jsp</url-pattern>
+            <http-method>GET</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>
+                These are the roles who have access.
+            </description>
+            <role-name>
+                shopper
+            </role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <description>
+                This is how the user data must be transmitted.
+            </description>
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/login.jsp</form-login-page>
+            <form-error-page>/fail_login.html</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <description>
+            A shopper
+        </description>
+        <role-name>
+            shopper
+        </role-name>
+    </security-role>
+
+
+</web-app>

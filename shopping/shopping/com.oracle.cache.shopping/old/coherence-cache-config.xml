@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE cache-config SYSTEM "cache-config.dtd">
+
+<cache-config>
+	<caching-scheme-mapping>
+		
+		<cache-mapping>
+			<cache-name>WatchListCache</cache-name>
+			<scheme-name>distributed</scheme-name>
+			<init-params>
+				<init-param>
+					<param-name>back-size-limit</param-name>
+					<param-value>0</param-value>
+				</init-param>				
+			</init-params>		
+		</cache-mapping>
+
+		<cache-mapping>
+			<cache-name>BusinessUnitCache</cache-name>
+			<scheme-name>distributed</scheme-name>
+			<init-params>
+				<init-param>
+					<param-name>back-size-limit</param-name>
+					<param-value>0</param-value>
+				</init-param>				
+			</init-params>		
+		</cache-mapping>
+
+		<cache-mapping>
+			<cache-name>ProspectsCache</cache-name>
+			<scheme-name>distributed</scheme-name>
+			<init-params>
+				<init-param>
+					<param-name>back-size-limit</param-name>
+					<param-value>0</param-value>
+				</init-param>				
+			</init-params>		
+		</cache-mapping>
+					
+	</caching-scheme-mapping>			
+	
+	<caching-schemes>
+		<distributed-scheme>
+			<scheme-name>distributed</scheme-name>
+			
+			<service-name>PartitionedPofCache</service-name>
+			<serializer>
+				<class-name>com.tangosol.io.pof.ConfigurablePofContext</class-name>
+				<init-params>
+					<init-param>
+						<param-type>string</param-type>
+						<param-value>demo-pof-config.xml</param-value>
+					</init-param>
+				</init-params>
+			</serializer>
+
+			<backing-map-scheme>
+				<local-scheme>
+					<unit-calculator>BINARY</unit-calculator>
+					<high-units>{back-size-limit 0}</high-units>
+				</local-scheme>
+			</backing-map-scheme>
+			
+			<autostart>true</autostart>
+		  	
+		  	<!-- 
+		 	<operation-bundling>
+				<bundle-config>
+					<operation-name>all</operation-name>
+					<prefered-size>10</prefered-size>
+					<delay-millis>100</delay-millis>
+					<thread-threshold>0</thread-threshold>
+					<auto-adjust>true</auto-adjust>
+				</bundle-config>
+			</operation-bundling>		
+		  	-->
+		  	
+		</distributed-scheme>
+		
+		<near-scheme>
+			<scheme-name>near</scheme-name>
+			
+			<front-scheme>
+				<local-scheme>
+					<high-units>{front-size-limit 1000}</high-units>
+				</local-scheme>
+			</front-scheme>
+			
+			<back-scheme>
+				<distributed-scheme>
+					<scheme-ref>distributed</scheme-ref>
+				</distributed-scheme>
+			</back-scheme>
+		</near-scheme>
+	</caching-schemes>
+
+</cache-config>

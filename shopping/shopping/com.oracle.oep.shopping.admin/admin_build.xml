@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<project name="admin_build" default="dist">
+
+	<property file="${basedir}/jaxb.build.properties"/>
+	
+	<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
+		<classpath>
+			<fileset dir="${oep.home}/modules" includes="*.jar" />
+		</classpath>
+	</taskdef>
+
+	<target name="build" depends="clean">
+		<xjc extension="true" destdir="generated_src" package="${package.name}">      
+			<schema dir="schemas" includes="*.xsd"/>			
+			<produces dir="generated_bin" includes="**/*.java" />								
+		</xjc>
+		<javac srcdir="generated_src" destdir="generated_bin" debug="on">
+			<classpath>
+				<fileset dir="${oep.home}/modules" includes="*.jar"/>				
+			</classpath>
+		</javac>
+
+	</target>
+			
+	<target name="clean">
+		<mkdir dir="generated_src"/>
+		<mkdir dir="generated_bin"/>
+		<mkdir dir="lib"/>
+		<delete includeemptydirs="true">
+			<fileset dir="generated_src" includes="**/*" />
+			<fileset dir="generated_bin" includes="**/*" />
+			<fileset dir="lib" includes="**/${jar.name}" />
+		</delete>
+	</target>
+			
+			
+	<target name="dist" depends="build">
+		<jar destfile="lib/${jar.name}">
+			 <fileset dir="generated_bin"/>
+		</jar>
+	</target>
+
+</project>

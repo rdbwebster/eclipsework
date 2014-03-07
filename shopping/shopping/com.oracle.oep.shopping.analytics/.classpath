@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="lib/shopping-cache.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="com.bea.wlevs.eclipse.tools.core.ocepClasspath"/>
+	<classpathentry kind="lib" path="/oracle/fmwhome/oracle_common/modules/org.apache.commons.logging_1.0.4.jar"/>
+	<classpathentry kind="lib" path="/oracle/oephome/ocep_11.1/modules/com.bea.wlevs.ede.api_11.1.1.7_0.jar"/>
+	<classpathentry kind="lib" path="/oracle/oephome/ocep_11.1/modules/com.oracle.cep.server_11.1.1.7_0.jar"/>
+	<classpathentry kind="lib" path="/oracle/oephome/ocep_11.1/modules/com.bea.wlevs.adapters.loadgen_11.1.1.7_0.jar"/>
+	<classpathentry kind="lib" path="/oracle/oephome/ocep_11.1/modules/com.bea.wlevs.adapters.httppubsub_11.1.1.7_0.jar"/>
+	<classpathentry kind="lib" path="/oracle/oephome/ocep_11.1/modules/com.bea.wlevs.spi_11.1.1.7_0.jar"/>
+	<classpathentry kind="lib" path="/oracle/oephome/ocep_11.1/modules/com.bea.wlevs.management.spi_11.1.1.7_0.jar"/>
+	<classpathentry kind="lib" path="/com.oracle.cache.shopping/dist/shopping-cache.jar"/>
+	<classpathentry kind="lib" path="/oracle/oephome/ocep_11.1/modules/com.tangosol.coherence_3.7.1.6.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

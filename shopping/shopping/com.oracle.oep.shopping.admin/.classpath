@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="generated_src"/>
+	<classpathentry kind="con" path="com.bea.wlevs.eclipse.tools.core.ocepClasspath"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/oracle/fmwhome/coherence_3.7/lib/coherence.jar"/>
+	<classpathentry kind="lib" path="/oracle/fmwhome/wlserver_10.3/server/lib/weblogic.jar"/>
+	<classpathentry kind="lib" path="/oracle/oephome/ocep_11.1/modules/com.bea.wlevs.adapters.httppubsub_11.1.1.7_0.jar"/>
+	<classpathentry kind="lib" path="/oracle/oephome/ocep_11.1/modules/com.bea.wlevs.ede_11.1.1.7_0.jar"/>
+	<classpathentry kind="lib" path="/oracle/oephome/ocep_11.1/modules/com.bea.wlevs.ede.api_11.1.1.7_0.jar"/>
+	<classpathentry kind="lib" path="/oracle/oephome/ocep_11.1/modules/com.bea.wlevs.util_11.1.1.7_0.jar"/>
+	<classpathentry kind="lib" path="/oracle/oephome/modules/org.eclipse.osgi.services_3.2.100.v20100503.jar"/>
+	<classpathentry kind="lib" path="/oracle/oephome/modules/com.bea.core.jmx_8.0.0.0.jar"/>
+	<classpathentry kind="lib" path="/oracle/oephome/modules/org.springframework.spring-core_2.5.6.jar"/>
+	<classpathentry kind="lib" path="/oracle/oephome/modules/org.springframework.spring-osgi-core_1.2.0.jar"/>
+	<classpathentry kind="lib" path="/oracle/oephome/modules/org.springframework.spring-beans_2.5.6.jar"/>
+	<classpathentry kind="lib" path="/oracle/oephome/modules/org.springframework.spring-osgi-annotation_1.2.0.jar"/>
+	<classpathentry kind="lib" path="/oracle/oephome/ocep_11.1/modules/com.bea.wlevs.spi_11.1.1.7_0.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
